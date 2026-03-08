@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0a0b10;
+  --color-bg-secondary: #13151f;
+  --color-bg-glass: rgba(25, 27, 40, 0.6);
+  --color-border-glass: rgba(255, 255, 255, 0.08);
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #94a3b8;
+
+  --color-accent-primary: #6366f1;
+  --color-accent-secondary: #8b5cf6;
+  --color-accent-glow: rgba(99, 102, 241, 0.4);
+
+  /* Emotion Colors */
+  --color-happy: #10b981;
+  --color-neutral: #64748b;
+  --color-sad: #3b82f6;
+  --color-angry: #ef4444;
+  --color-frustrated: #f97316;
+  --color-confused: #eab308;
+  --color-notinterested: #7f1d1d;
+  --color-interested: #06b6d4;
+  --color-stressed: #db2777;
+  --color-excited: #8b5cf6;
+
+  --animate-pulse-ring: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  --animate-blink: blink 1s infinite alternate;
+  --animate-rotate-slow: rotate-slow 20s linear infinite;
+  --animate-fade-in-up: fade-in-up 0.3s ease-out forwards;
+}
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+  * {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glow-Happy {
+    box-shadow: 0 0 50px rgba(16, 185, 129, 0.3);
+    border-color: var(--color-happy);
+  }
+
+  .text-Happy {
+    color: var(--color-happy);
+  }
+
+  .glow-Neutral {
+    box-shadow: 0 0 50px rgba(100, 116, 139, 0.3);
+    border-color: var(--color-neutral);
+  }
+
+  .text-Neutral {
+    color: var(--color-neutral);
+  }
+
+  .glow-Sad {
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
+    border-color: var(--color-sad);
+  }
+
+  .text-Sad {
+    color: var(--color-sad);
+  }
+
+  .glow-Angry {
+    box-shadow: 0 0 50px rgba(239, 68, 68, 0.3);
+    border-color: var(--color-angry);
+  }
+
+  .text-Angry {
+    color: var(--color-angry);
+  }
+
+  .glow-Frustrated {
+    box-shadow: 0 0 50px rgba(249, 115, 22, 0.3);
+    border-color: var(--color-frustrated);
+  }
+
+  .text-Frustrated {
+    color: var(--color-frustrated);
+  }
+
+  .glow-Confused {
+    box-shadow: 0 0 50px rgba(234, 179, 8, 0.3);
+    border-color: var(--color-confused);
+  }
+
+  .text-Confused {
+    color: var(--color-confused);
+  }
+
+  .glow-NotInterested {
+    box-shadow: 0 0 50px rgba(127, 29, 29, 0.3);
+    border-color: var(--color-notinterested);
+  }
+
+  .text-NotInterested {
+    color: var(--color-notinterested);
+  }
+
+  .glow-Interested {
+    box-shadow: 0 0 50px rgba(6, 182, 212, 0.3);
+    border-color: var(--color-interested);
+  }
+
+  .text-Interested {
+    color: var(--color-interested);
+  }
+
+  .glow-Stressed {
+    box-shadow: 0 0 50px rgba(219, 39, 119, 0.3);
+    border-color: var(--color-stressed);
+  }
+
+  .text-Stressed {
+    color: var(--color-stressed);
+  }
+
+  .glow-Excited {
+    box-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
+    border-color: var(--color-excited);
+  }
+
+  .text-Excited {
+    color: var(--color-excited);
+  }
+
+  /* Utilities converted from custom classes */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass-panel-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .mic-button {
+    background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-primary));
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--color-border-glass);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mic-button:hover {
+    transform: scale(1.05);
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.15), 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .mic-button-recording {
+    background: linear-gradient(135deg, #ef4444, #991b1b);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  }
+
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 20px rgba(239, 68, 68, 0), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
