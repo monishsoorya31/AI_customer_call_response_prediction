@@ -65,29 +65,19 @@ class AudioProcessor:
         Converts uploaded standard WAV file into text using Google Speech Recognition
         and extracts complex audio features.
         """
-        import speech_recognition as sr
-        
-        import time
-        start_time_stt = time.time()
         audio_bytes = audio_file.read()
-        print(f"  [DEBUG] Starting feature extraction...")
         features = self.extract_features(audio_bytes)
         
         text = ""
-        print(f"  [DEBUG] Starting STT (Google)...")
         try:
             with sr.AudioFile(io.BytesIO(audio_bytes)) as source:
                 audio_data = self.recognizer.record(source)
                 text = self.recognizer.recognize_google(audio_data)
-                print(f"  [DEBUG] STT finished. Text: {text}")
         except sr.UnknownValueError:
-            print("  [DEBUG] Google STT could not understand audio")
             logger.info("Google STT could not understand audio")
         except Exception as e:
-            print(f"  [DEBUG] STT Error: {e}")
             logger.error(f"Error processing audio STT: {e}")
             
-        print(f"  [DEBUG] Total process_audio time: {time.time() - start_time_stt:.2f}s")
         return text, features
 
 class EmotionAnalyzer:
